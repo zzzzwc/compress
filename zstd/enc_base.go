@@ -127,7 +127,7 @@ func (e *fastBase) matchlen(s, t int32, src []byte) int32 {
 			panic(fmt.Sprintf("len(src)-s (%d) > maxCompressedBlockSize (%d)", len(src)-int(s), maxCompressedBlockSize))
 		}
 	}
-	return int32(matchLen(src[s:], src[t:]))
+	return int32(matchLenGeneric(src[s:], src[t:]))
 }
 
 // Reset the encoding table.

@@ -6,7 +6,7 @@
 
 // func matchLen(a []byte, b []byte) int
 // Requires: AVX, AVX2, BMI, CMOV
-TEXT ·matchLen(SB), NOSPLIT, $0-56
+TEXT ·matchLenASM(SB), NOSPLIT, $0-56
 	// load param
 	MOVQ a_base+0(FP), AX
 	MOVQ a_len+8(FP), CX

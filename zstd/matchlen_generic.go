@@ -1,6 +1,3 @@
-//go:build !amd64 || appengine || !gc || noasm
-// +build !amd64 appengine !gc noasm
-
 package zstd
 
 import (
@@ -10,7 +7,7 @@ import (
 
 // matchLen returns the maximum common prefix length of a and b.
 // a must be the shortest of the two.
-func matchLen(a, b []byte) (n int) {
+func matchLenGeneric(a, b []byte) (n int) {
 	for ; len(a) >= 8 && len(b) >= 8; a, b = a[8:], b[8:] {
 		diff := binary.LittleEndian.Uint64(a) ^ binary.LittleEndian.Uint64(b)
 		if diff != 0 {
